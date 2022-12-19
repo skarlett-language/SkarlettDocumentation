@@ -29,40 +29,34 @@
 
 Example:
 - do this
-	
 
-	a = 32 + 64
-	
+		a = 32 + 64
+		
 - do NOT do this
 
-
-	a=32+64
+		a=32+64
 
 ### Wrap with parentheses the operations which are nested inside others, in case they have different nature
 
 Example:
 -  do this
 
-
-	if ((a + b) > 0) and ((b + c) != 100)
+		if ((a + b) > 0) and ((b + c) != 100)
 	
 - do NOT do this
 
-
-	if a + b > 0 and b + c != 100
+		if a + b > 0 and b + c != 100
 
 ### When operating with negative numbers, you are required to wrap them in parentheses. Skarlett's syntax dows not allow an operator next to another
 
 Example:
 - do this
 
-	
-    a = 64 + (- 32)
+	    a = 64 + (- 32)
 
 - do NOT do this
 
-
-	a = 64 + -32
+		a = 64 + -32
 ---
 
 # Types and declarations
@@ -71,25 +65,20 @@ Example:
     - base 10 integer numbers
     - includes "infinity"
 	
-	
-	intVariable = 32
-	infinityVariable = inf
+			intVariable = 32
+			infinityVariable = inf
 
 
 - float
     - base 10 numbers with a fractional part
 
-
-	floatVariable = 128.64
-
+			floatVariable = 128.64
 
 - hexa
-	- base 16 integer numbers
-	- it is required to put "hx" before the digits, to tell the interpreter that you are declaring a hexadecimal number
+    - base 16 integer numbers
+    - it is required to put "hx" before the digits, to tell the interpreter that you are declaring a hexadecimal number
 
-
-	hexaVariable = hxF1
-
+			hexaVariable = hxF1
 
 - binary
     - base 2 numbers
@@ -99,7 +88,7 @@ Example:
     - the LSB is at the extreme left position, while the MSB is a the extreme right
 
 
-	binaryVariable = bx0010011
+			binaryVariable = bx0010011
 
 #### Negative numbers
 - only int and float can have a negative value
@@ -107,17 +96,17 @@ Example:
 - example:
 
 
-	negativeNumber = -hxF1
+		negativeNumber = -hxF1
 
-	show(negativeNumber) 		# prints: -241 #
-	show(type(negativeNumber)) 	# prints: int #
+		show(negativeNumber) 		# prints: -241 #
+		show(type(negativeNumber)) 	# prints: int #
 
 ### Strings
 - combination of letters, numbers and symbols
 - in Skarlett there are only single quoted strings
 
 
-	stringVariable = 'This is a string!'
+		stringVariable = 'This is a string!'
 
 - the "+" operator adds the provided string or char to the existing string
 - the "*" operator repeats the string itself as many times as specified
@@ -129,21 +118,21 @@ Example:
 - to add elements to the list, use the "+=" operator
 
 
-	listVariable = []
+		listVariable = []
 
 
 ### Bool
 - boolean values: "true" and "false"
 
 
-	boolVariable = true
+		boolVariable = true
 
 
 ### Null
 - null type
 
 
-	nullVariable = null
+		nullVariable = null
 
 ---
 
@@ -154,71 +143,71 @@ Example:
 	- every operator requires two operands
 
 
-	==
-	!=
-	>
-	<
-	>=
-	<=	
+			==
+			!=
+			>
+			<
+			>=
+			<=	
 	
 
 - logic gates
     - Skarlett contains the builtin implementation of all the logic gates
 
 
-	not
-			| input | output |
-			|-------|--------|
-			|   0   |    1   |
-			|   1   |    0   |
+			not
+					| input | output |
+					|-------|--------|
+					|   0   |    1   |
+					|   1   |    0   |
 
-	and 
-			| input1 input2 | output |
-			|---------------|--------|
-			|    0      0   |    0   |
-			|    0      1   |    0   |
-			|    1      0   |    0   |
-			|    1      1   |    1   |
+			and 
+					| input1 input2 | output |
+					|---------------|--------|
+					|    0      0   |    0   |
+					|    0      1   |    0   |
+					|    1      0   |    0   |
+					|    1      1   |    1   |
 
-	nand (not and)
-			| input1 input2 | output |
-			|---------------|--------|
-			|    0      0   |    1   |
-			|    0      1   |    1   |
-			|    1      0   |    1   |
-			|    1      1   |    0   |
+			nand (not and)
+					| input1 input2 | output |
+					|---------------|--------|
+					|    0      0   |    1   |
+					|    0      1   |    1   |
+					|    1      0   |    1   |
+					|    1      1   |    0   |
 
-	or 
-			| input1 input2 | output |
-			|---------------|--------|
-			|    0      0   |    0   |
-			|    0      1   |    1   |
-			|    1      0   |    1   |
-			|    1      1   |    1   |
+			or 
+					| input1 input2 | output |
+					|---------------|--------|
+					|    0      0   |    0   |
+					|    0      1   |    1   |
+					|    1      0   |    1   |
+					|    1      1   |    1   |
 
-	nor (not or)
-			| input1 input2 | output |
-			|---------------|--------|
-			|    0      0   |    1   |
-			|    0      1   |    0   |
-			|    1      0   |    0   |
-			|    1      1   |    0   |
+			nor (not or)
+					| input1 input2 | output |
+					|---------------|--------|
+					|    0      0   |    1   |
+					|    0      1   |    0   |
+					|    1      0   |    0   |
+					|    1      1   |    0   |
 
-	xor 
-			| input1 input2 | output |
-			|---------------|--------|
-			|    0      0   |    0   |
-			|    0      1   |    1   |
-			|    1      0   |    1   |
-			|    1      1   |    0   |
+			xor 
+					| input1 input2 | output |
+					|---------------|--------|
+					|    0      0   |    0   |
+					|    0      1   |    1   |
+					|    1      0   |    1   |
+					|    1      1   |    0   |
 
-	xnor (not xor)
-			| input1 input2 | output |
-			|---------------|--------|
-			|    0      0   |    1   |
-			|    0      1   |    0   |
-			|    1      0   |    0   |
-			|    1      1   |    1   |
+			xnor (not xor)
+					| input1 input2 | output |
+					|---------------|--------|
+					|    0      0   |    1   |
+					|    0      1   |    0   |
+					|    1      0   |    0   |
+					|    1      1   |    1   |
 
 
 	in the truth tables, "1" represents true, and "0" represents false
@@ -227,29 +216,29 @@ Example:
 - arithmetic operators require two operands, and are able to make multi-type math
 
 
-	+     (sum)
-	-     (subtraction)
-	*     (multiplication)
-	/     (division)
-	%     (module)
-	**    (power)
-	//    (integer division)
-	>>	  (right shift)
-	<<    (left shift)
+		+     (sum)
+		-     (subtraction)
+		*     (multiplication)
+		/     (division)
+		%     (module)
+		**    (power)
+		//    (integer division)
+		>>	  (right shift)
+		<<    (left shift)
 
 
 - every operator has his own assignment form, for arithmetic vriable overwriting
 
 
-	+= 
-	-=
-	*=
-	/=
-	%=
-	**=
-	//=
-	>>=
-	<<=
+		+= 
+		-=
+		*=
+		/=
+		%=
+		**=
+		//=
+		>>=
+		<<=
 
 	
 ### Square bracket getter
@@ -257,8 +246,8 @@ Example:
 - needs an integer number as parameter
 
 
-	example = bx0010011
-	example[3] (returns 1)
+		example = bx0010011
+		example[3] (returns 1)
 
 ---
 
@@ -267,9 +256,9 @@ Example:
 - multi-line comments are allowed
 
 
-	# this is 
-	a multi-line
-	comment #
+		# this is 
+		a multi-line
+		comment #
 
 ---
 
@@ -289,13 +278,13 @@ Example:
 - condition do not require parentheses wrapping, but it canbe used
 
 
-	if 5 > 8 {
-		# if statement #
-	} elif 5 < 8 {
-		# elif statement #
-	} else {
-		# else statement #
-	}
+		if 5 > 8 {
+			# if statement #
+		} elif 5 < 8 {
+			# elif statement #
+		} else {
+			# else statement #
+		}
 
 ---
 
@@ -310,17 +299,17 @@ Example:
 		- skips to the next condition check
 
 
-	i = 0
-	while i < 10 {
-		# do something #
-		if i == 6 {
-			i += 2
-			continue
-		} elif i == 8 {
-			exit
-		}
-		i += 1
-	}
+				i = 0
+				while i < 10 {
+					# do something #
+					if i == 6 {
+						i += 2
+						continue
+					} elif i == 8 {
+						exit
+					}
+					i += 1
+				}
 
 ---
 
@@ -336,10 +325,10 @@ Example:
 	- to return multiple values, you can put them in a list and return the list
 
 
-	fnc greet(name) {
-		returnString = 'Hi ' + name + '! Welcome to Skarlett!'
-		return returnString
-	}
+			fnc greet(name) {
+				returnString = 'Hi ' + name + '! Welcome to Skarlett!'
+				return returnString
+			}
 
 ---
 
@@ -349,24 +338,24 @@ Example:
 - convert a value in the desider type, if posible
 
  
-	int()
-	float()
-	hexa()
-	bin()
-	string()
-	bool()
+		int()
+		float()
+		hexa()
+		bin()
+		string()
+		bool()
 
 
 - every function takes one parameter, and return the casted value
 
 
-    originalValue = 32
-    intValue = int(originalValue)       # returns 32 #
-    hexaValue = hexa(originalValue)     # returns hx20 #
-    binValue = bin(originalValue)       # returns bx000001 #
-    stringValue = string(originalValue) # returns '32' #
-	boolValue = bool(originalValue)     # returns true #
-	floatValue = float(originalValue)   # returns 32.0 #
+		originalValue = 32
+		intValue = int(originalValue)       # returns 32 #
+		hexaValue = hexa(originalValue)     # returns hx20 #
+		binValue = bin(originalValue)       # returns bx000001 #
+		stringValue = string(originalValue) # returns '32' #
+		boolValue = bool(originalValue)     # returns true #
+		floatValue = float(originalValue)   # returns 32.0 #
 
 
 ### Input and output
@@ -374,7 +363,7 @@ Example:
 	- prints in the console whathever it receives as parameter
 
 
-	show('Skarlett!') # prints Skarlett! to the console #
+			show('Skarlett!') # prints Skarlett! to the console #
 
 
 - get function
@@ -382,16 +371,16 @@ Example:
 	- can receive a parameter, which is printed before the typing detection
 
 
-	get('Type your name: ')     # prints "Type your name: " and waits for you to type something and press the "return" key #
+			get('Type your name: ')     # prints "Type your name: " and waits for you to type something and press the "return" key #
 
 
 ### Type
 - returns the type of the provided value or variable in sring form
 
 
-	value = 32
-	type(value)    # returns 'int' #
-	type(hxF1)     # returns 'hexanumber' #
+		value = 32
+		type(value)    # returns 'int' #
+		type(hxF1)     # returns 'hexanumber' #
 
 
 ### Split and join
@@ -406,15 +395,15 @@ Example:
 	- the binary version only takes a list of zeros and ones and returns a binary number, which digits correspond to the list
 
 
-	stringVar = 'This is a string'
-	splitted = split(stringVar, ' ') # returns ['This', 'is', 'a', 'string'] #
+			stringVar = 'This is a string'
+			splitted = split(stringVar, ' ') # returns ['This', 'is', 'a', 'string'] #
 
-	binaryVar = bx0010011
-	bits = binSplit(binaryVar)      # returns [0, 0, 1, 0, 0, 1, 1]
+			binaryVar = bx0010011
+			bits = binSplit(binaryVar)      # returns [0, 0, 1, 0, 0, 1, 1]
 
-	joinedString = join(splitted, ' ! ') # returns 'This ! is ! a ! string !' #
+			joinedString = join(splitted, ' ! ') # returns 'This ! is ! a ! string !' #
 
-	joinedBits = binJoin(bits)       # returns bx0010011 #
+			joinedBits = binJoin(bits)       # returns bx0010011 #
 
 
 ### Fragment
@@ -422,8 +411,8 @@ Example:
 - as parameters, togeter with the value or variable, it requires two integers, which indicated the beginning index and the ending index for the "cut"
 
 
-	fragment('Skarlett', 1, 4)     # returns 'karl' #
-	fragment(bx0010011, 2, 5)      # returns bx1001 #
+		fragment('Skarlett', 1, 4)     # returns 'karl' #
+		fragment(bx0010011, 2, 5)      # returns bx1001 #
 
 
 ---
@@ -438,8 +427,8 @@ Example:
 		- remember to put the file extension ".skt" at the end of the file path
 
 
-	import bitLogic
-	import '/home/user/skarlettCode/myFile.skt'
+				import bitLogic
+				import '/home/user/skarlettCode/myFile.skt'
 
 
 ---
@@ -449,6 +438,6 @@ Example:
 - every module has his own documentation
 
 
-	bitLogic
-	bitMath
+		bitLogic
+		bitMath
 
