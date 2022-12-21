@@ -1,0 +1,42 @@
+import bitLogic
+
+#
+Write a function to convert a number in binary,
+then check if the result is correct bit by bit,
+using the bitXnor function from "bitLogic" module
+#
+
+fnc numberToBits(number) {
+    convertedNumber = bx0
+    numberCopy = number
+    bitIndex = 0
+
+    while numberCopy != 0 {
+        bit = numberCopy % 2
+        convertedNumber += bit*(2**bitIndex)
+        numberCopy //= 2
+        i += 1
+    }
+
+    return convertedNumber
+}
+
+testNumber = 15
+
+castedNumber = bin(testNumber)
+show(castedNumber)
+
+functionTest = numberToBits(testNumber)
+show(functionTest)
+
+correctnessCheck = bitXnor(castedNumber, functionTest)
+correct = true
+
+i = 0
+while i < size(correctnessCheck) {
+    if correctnessCheck[i] != 1 {
+        correct = false
+    }
+}
+
+show('Bit by bit analysis shows that the correctness is: ' + correct)

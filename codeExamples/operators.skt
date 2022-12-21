@@ -1,0 +1,133 @@
+#
+Logic operators
+  - equal "=="
+  - not equal "!="
+  - greater ">"
+  - less "<"
+  - greater equal ">="
+  - less equal "<="
+#
+
+a = 8
+b = 5
+
+#
+a == b -> false
+a != b -> true
+a > b -> true
+a < b -> false
+a >= b -> true
+a <= b -> false
+#
+
+#
+Arithmetic operators
+  - add            "+"
+  - subtract       "-"
+  - multiply       "*"
+  - divide         "/"
+  - module         "%"
+  - power          "**"
+  - integer divide "//"
+
+5 + 6 -> 11
+8 - 3 -> 5
+4 * 2 -> 14
+9 / 2 -> 4.5
+9 % 4 -> 1
+2 ** 8 -> 256
+13 // 5 -> 3
+#
+
+#
+Arithmetical assignment
+  - "+="
+  - "-="
+  - "*="
+  - "/="
+  - "%="
+  - "**="
+  - "//="
+#
+
+number = 20
+
+number += 2     # -> 22 #
+number -= 4     # -> 18 #
+number *= 2     # -> 36 #
+number /= 12    # -> 3  #
+number **= 3    # -> 27 #
+number //= 4    # -> 3  #
+number %= 5     # -> 3  #
+
+#
+The "+=" operator, used with lists, adds the provided value at the end of the list
+#
+
+#
+Logic gates:
+  - "not"
+  - "and"
+  - "nand"
+  - "or"
+  - "nor"
+  - "xor"
+  - "xnor"
+
+Truth tables:
+  - in this tables, 0 has to be evaluated as false, and 1 as true
+
+         not
+    input | output
+    ______________
+      0   |   1
+      1   |   0
+
+         and
+input1 input2 | output
+______________________
+  0       0   |   0
+  0       1   |   0
+  1       0   |   0
+  1       1   |   1
+
+         nand
+input1 input2 | output
+______________________
+  0       0   |   1
+  0       1   |   1
+  1       0   |   1
+  1       1   |   0
+
+          or
+input1 input2 | output
+______________________
+  0       0   |   0
+  0       1   |   1
+  1       0   |   1
+  1       1   |   1
+
+         nor
+input1 input2 | output
+______________________
+  0       0   |   1
+  0       1   |   0
+  1       0   |   0
+  1       1   |   0
+
+         xor
+input1 input2 | output
+______________________
+  0       0   |   0
+  0       1   |   1
+  1       0   |   1
+  1       1   |   0
+
+         xnor
+input1 input2 | output
+______________________
+  0       0   |   1
+  0       1   |   0
+  1       0   |   0
+  1       1   |   1
+#

@@ -1,0 +1,25 @@
+#
+Conditionals involve three keywords:
+  - if
+    - first and required part for the conditional block
+    - needs a condition
+  - elif
+    - optional part for a conditional block
+    - its condition is controlled only if the "if" condition is false
+    - needs a condition
+  - else
+    - optional and final part for a conditional block
+    - executes only if the "if" and all the "elif" have false condition
+    - can't have a condition
+#
+
+a = 32
+b = 64
+
+if a == b {
+    # a equals b #
+} elif a > b {
+    # a is greater than b #
+} else {
+    # a is less than b #
+}

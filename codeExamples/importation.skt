@@ -1,0 +1,12 @@
+#
+Importation:
+  - two ways:
+    - default modules importation
+    - user defines files or modules
+  - default modules importation only requires the name of the module
+  - user defined files require full path and extension for a correct importation (in string form)
+#
+
+import binLogic
+
+import '/home/username/skarlettFiles/myModule.skt'
