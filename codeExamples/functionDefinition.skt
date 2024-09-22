@@ -1,9 +1,0 @@
-#
-Function definition involve two keywords:
-  - "fnc" which indicates the function declaration
-  - "return" gives back a value to the execution flow
-#
-
-fnc makeGreetString(name) {
-    return 'Hi ' + name + '! Welcome to Skarlett programming!'
-}
