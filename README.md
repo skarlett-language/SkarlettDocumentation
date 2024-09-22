@@ -1,31 +1,4 @@
 # General advice
-### In Skarlett, spaces are very important, remember to always put them between variables, functions, operators and keywords. Brackets are the only which do not require space-separation rule.
-
-Example:
-- do this
-	
-```
-a = 32 + 64
-```
-- do NOT do this
-
-```
-a=32+64
-```
-
-### Wrap with parentheses the operations which are nested inside others, in case they have different nature
-
-Example:
--  do this
-
-```
-if ((a + b) > 0) and ((b + c) != 100)
-```
-- do NOT do this
-
-```
-if a + b > 0 and b + c != 100
-```
 ### When operating with negative numbers, you are required to wrap them in parentheses. Skarlett's syntax does not allow an operator next to another
 
 Example:
@@ -62,7 +35,7 @@ floatVariable = 128.64
 
 - hexa
 	- base 16 integer numbers
-	- it is required to put "hx" before the digits, to tell the interpreter that you are declaring a hexadecimal number
+	- it is required to put `hx` before the digits, to tell the interpreter that you are declaring a hexadecimal number
 
 ```
 hexaVariable = hxF1
@@ -71,24 +44,15 @@ hexaVariable = hxF1
 - binary
     - base 2 numbers
     - the compiler itself considers all binary numbers as integers, but you can use them also in two complement form, or IEEE 754
-        - in this case, remember that to use math on them, you have to call the "bitMath" builtin module
-    - it is required to put "bx" before the digits, to tell the interpreter that you are declaring a binary number
-    - the LSB is at the extreme left position, while the MSB is at the extreme right
+      - math in two complement must be user defined
+    - it is required to put `bx` before the digits, to tell the interpreter that you are declaring a binary number
+    - the MSB is at the extreme left position, while the LSB is at the extreme right
+    - the use of any logic gate (explained later) between two binary numbers results in a bitwise operation, which returns a binary number, instead of a boolean one  
 
 ```
-binaryVariable = bx0010011
+binaryVariable = bx1101011
 ```
-#### Negative numbers
-- only int and float can have a negative value
-- if another type of number is declared as negative, its type will be converted to int or float
-- example:
 
-```
-negativeNumber = -hxF1
-
-show(negativeNumber) 		# prints: -241 #
-show(type(negativeNumber)) 	# prints: int #
-```
 ### Strings
 - combination of letters, numbers and symbols
 - in Skarlett there are only single quoted strings
@@ -151,6 +115,7 @@ myHash = hash
 
 - logic gates
     - Skarlett contains the builtin implementation of all the logic gates
+    - logic gates used between binary numbers trigger bitwise logic
 
 ```
 not
@@ -250,8 +215,15 @@ example[3] (returns 1)
 ---
 
 # Comments
-- comments require the "#" symbols, which has to be placed at the beginning and at the end of the comment
-- multi-line comments are allowed
+## Single line
+- single line comments are made putting `#!` before the comment
+
+```
+#! single line comment
+```
+
+## Multi Line
+- multi line comments require the `#` symbol to be at the beginning and end of the comment
 
 ```
 # this is 
@@ -262,24 +234,26 @@ comment #
 
 # Conditionals
 - conditional statements involve three keywords:
-	- if 
+	- `if` 
 		- requires a condition
 		- its condition is the first to be checked
-	- elif 
+	- `elif` 
 		- requires a condition
-		- its condition is checked only if the "if" condition is false
-		- multiple "elif" can coexist in the same statement, and their condition is verified in the order with which they were written
-	- else
+		- its condition is checked only if the `if` condition evaluates to `false`
+		- multiple `elif` can coexist in the same statement, and their condition is verified in the order with which they are written
+	- `else`
 		- can't have a condition
-		- its statement is executed only if the "if" and eventual "elif" condition are false
-- every statement needs to be wrapper around with curly brackets
+		- its statement is executed only if the `if` and eventual `elif` conditions evaluate to `false`
+- every statement needs to be wrapped around with curly brackets
 - condition do not require parentheses wrapping, but it can be used
 
 ```
 if 5 > 8 {
     # if statement #
+
 } elif 5 < 8 {
     # elif statement #
+
 } else {
     # else statement #
 }
@@ -291,9 +265,9 @@ if 5 > 8 {
 - every loop requires a condition
 - its statement need to be wrapped around with curly brackets
 - in loop's statements there are two keywords to alter the normal execution flow
-	- exit
+	- `exit`
 		- stops the execution of the loop statement and exits the loops
-	- continue
+	- `continue`
 		- skips to the next iteration
 
 ### While loop example
@@ -310,13 +284,13 @@ while i < 10 {
     i += 1
 }
 ```
-- the condition of the loop gets verified before every iteration, 
+- the loop's condition gets verified before every iteration, 
 and only if the condition evaluates to true, the statement is executed
 
 ### From loop example
 ```
 from i = 100 to 5 step -2 {
-	show(i)
+    stdout(i)
 }
 ```
 - from loops implement new keywords:
@@ -328,8 +302,8 @@ from i = 100 to 5 step -2 {
 ```
 i = 0
 do {
-	stdout(i)
-	i += 1
+    stdout(i)
+    i += 1
 } until i == 10
 ```
 - do-until loops implements its keywords:
@@ -341,7 +315,7 @@ do {
 
 ### For loops
 ```
-var = bx00101
+var = bx10100
 
 for bit in var {
     stdout(var)
@@ -377,7 +351,6 @@ fnc greet(name) {
 ### Casting functions
 - convert a value in the desired type, if possible
 
- 
 ```
 int()
 float()
@@ -393,7 +366,7 @@ bool()
 originalValue = 32
 intValue = int(originalValue)       # returns 32 #
 hexaValue = hexa(originalValue)     # returns hx20 #
-binValue = bin(originalValue)       # returns bx000001 #
+binValue = bin(originalValue)       # returns bx100000 #
 stringValue = string(originalValue) # returns '32' #
 boolValue = bool(originalValue)     # returns true #
 floatValue = float(originalValue)   # returns 32.0 #
@@ -409,6 +382,7 @@ floatValue = float(originalValue)   # returns 32.0 #
     - e.g. `ls -l | skarlett myFile.skt`
   - `stdargs` -> reads the arguments given in the terminal, and returns it as a list
     - e.g. `skarlett myFile.skt arg1 arg2 arg3`
+  
 ### Type
 - returns the type of the provided value or variable in string form
 
@@ -434,12 +408,12 @@ type(hxF1)     # returns 'hexanumber' #
 stringVar = 'This is a string'
 splitted = split(stringVar, ' ') # returns ['This', 'is', 'a', 'string'] #
 
-binaryVar = bx0010011
-bits = binSplit(binaryVar)      # returns [0, 0, 1, 0, 0, 1, 1]
+binaryVar = bx10011
+bits = binSplit(binaryVar)      # returns [1, 0, 0, 1, 1]
 
 joinedString = join(splitted, ' ! ') # returns 'This ! is ! a ! string !' #
 
-joinedBits = binJoin(bits)       # returns bx0010011 #
+joinedBits = binJoin(bits)       # returns bx10011 #
 ```
 
 ### Fragment
@@ -506,6 +480,18 @@ setIndex(myList, 4, hxF1)
 sleep(bx001)
 ```
 
+### Time stamp
+- takes not argument
+- returns a float representing the current time stamp, which can be used to determine time deltas (e.g. execution time)
+
+``` 
+before = timeStamp()
+# Here goes the code #
+after = timeStamp()
+
+stdout('Elapsed time: ' + (after - before))
+```
+
 ### Round
 - takes as input:
   - a float, which will be rounded
@@ -528,14 +514,17 @@ set(myHash, 'myKey', 'myValue')
 ---
 
 # Importation
-- importation of files and modules has two forms:
-	- user defined modules or files importation
-		- requires the "import" keyword and the full path of the file
-		- the file path must be in string form, so in single quoted strings
-		- remember to put the file extension ".skt" at the end of the file path
-
+- importation requires the file path (relative or absolute) of the module to import
 ```
-import '/home/user/skarlettCode/myFile.skt'
+import '/home/user/skarlettCode/myModule.skt'
+```
+
+- to use functions and variables coming from a module, it is required to put `<moduleName>::` before
+- the module's file name sets the module's name itself
+```
+var = myModule::moduleVariable
+
+myModule::moduleFunction()
 ```
 
 ---
